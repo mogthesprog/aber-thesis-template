@@ -1,0 +1,99 @@
+\documentclass[12pt]{aber-thesis}  % default square logo 
+%\documentclass[12pt,beltcrest]{ociamthesis} % use old belt crest logo
+%\documentclass[12pt,shieldcrest]{ociamthesis} % use older shield crest logo
+
+%load any additional packages
+\usepackage{amssymb}
+%\usepackage{fixltx2e}
+\usepackage{float}
+% Add fix for float package conflict
+%\makeatletter
+%\let\@tmp\@xfloat
+% End fix
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{color}
+%\usepackage{float}
+\usepackage{fixltx2e}
+% Add fix for float package conflict
+%\let\@tmp\@xfloat
+%\makeatother
+% End fix
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{bibentry}
+\nobibliography*
+\usepackage[round]{natbib}
+\usepackage{booktabs}
+\usepackage[font=footnotesize, margin=1cm]{caption}
+\captionsetup{labelfont=bf}
+\captionsetup[table]{singlelinecheck=false}
+\graphicspath{{figs/}}
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\setkeys{Gin}{width=0.66\linewidth}
+
+%input macros (i.e. write your own macros file called mymacros.tex 
+%and uncomment the next line)
+%\include{mymacros}
+
+\title{My Title \\[1ex]     %your thesis title,
+        title title}   %note \\[1ex] is a line break in the title
+
+\author{Joe Bloggs}             %your name
+\college{The Department of Physics}  %your college
+
+%\renewcommand{\submittedtext}{change the default text here if needed}
+\degreename{Doctor of Philosophy}     %the degree
+\degreedate{March 2015}         %the degree date
+
+%end the preamble and start the document
+\begin{document}
+
+%this baselineskip gives sufficient line spacing for an examiner to easily
+%markup the thesis with comments
+\baselineskip=24pt plus1pt
+
+%set the number of sectioning levels that get number and appear in the contents
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+\maketitle                  % create a title page from the preamble info
+\include{tex/originality}       % include a statement of originality
+\include{tex/dedication}        % include a dedication.tex file
+\include{tex/acknowledgements}   % include an acknowledgements.tex file
+\include{tex/abstract}          % include the abstract
+
+\begin{romanpages}          % start roman page numbering
+\tableofcontents            % generate and include a table of contents
+\listoffigures              % generate and include a list of figures
+\end{romanpages}            % end roman page numbering
+
+%now include the files of latex for each of the chapters etc
+
+	\include{tex/introduction}
+	\include{tex/literature-review}
+	\include{tex/chapter-1}
+	\include{tex/chapter-2}
+	\include{tex/chapter-3}
+	\include{tex/conclusions}
+
+
+
+%now enable appendix numbering format and include any appendices
+\appendix
+\include{tex/appendix-1}
+\include{tex/appendix-2}
+
+%next line adds the Bibliography to the contents page
+\addcontentsline{toc}{chapter}{Bibliography}
+%uncomment next line to change bibliography name to references
+%\renewcommand{\bibname}{References}
+
+\bibliography{bib/library.bib}
+\bibliographystyle{plainnat}
+
+\end{document}
+
